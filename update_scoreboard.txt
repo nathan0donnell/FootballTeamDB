@@ -1,0 +1,29 @@
+-- Increase Team A wins by 1
+UPDATE team_record SET wins = wins + 1 WHERE team_id = 1;
+
+-- Increase Team A losses by 1
+UPDATE team_record SET losses = losses + 1 WHERE team_id = 1;
+
+-- Increase Team A draws by 1
+UPDATE team_record SET draws = draws + 1 WHERE team_id = 1;
+
+-- Increase Team B wins by 1
+UPDATE team_record SET wins = wins + 1 WHERE team_id = 2;
+
+-- Increase Team B losses by 1
+UPDATE team_record SET losses = losses + 1 WHERE team_id = 2;
+
+-- Increase Team B draws by 1
+UPDATE team_record SET draws = draws + 1 WHERE team_id = 2;
+
+-- Increase Team C wins by 1
+UPDATE team_record SET wins = wins + 1 WHERE team_id = 3;
+
+-- Increase Team C losses by 1
+UPDATE team_record SET losses = losses + 1 WHERE team_id = 3;
+
+-- Increase Team C draws by 1
+UPDATE team_record SET draws = draws + 1 WHERE team_id = 3;
+
+-- Scoreboard
+SELECT * FROM team_record;
