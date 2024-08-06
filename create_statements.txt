@@ -49,3 +49,11 @@ CREATE TABLE 'player_guardian' (
 FOREIGN KEY ('player_id') REFERENCES 'player'('id')
 FOREIGN KEY ('guardian_id') REFERENCES 'guardian'('id')
 );
+
+CREATE TABLE 'team_record' (
+'team_id' INTEGER,
+'wins' INTEGER DEFAULT 0,
+'draws' INTEGER DEFAULT 0,
+'losses' INTEGER DEFAULT 0,
+FOREIGN KEY ('team_id') REFERENCES 'team'('id')
+);
