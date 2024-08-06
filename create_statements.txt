@@ -1,0 +1,50 @@
+DROP TABLE IF EXISTS 'player';
+DROP TABLE IF EXISTS 'coach';
+DROP TABLE IF EXISTS 'guardian';
+DROP TABLE IF EXISTS 'player_guardian';
+DROP TABLE IF EXISTS 'team';
+DROP TABLE IF EXISTS 'age_group';
+
+	
+CREATE TABLE 'player' (
+'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+'first_name' TEXT,
+'last_name' TEXT,
+'team_id' INTEGER,
+FOREIGN KEY ('team_id') REFERENCES 'team'('id')
+);
+		
+CREATE TABLE 'coach' (
+'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+'first_name' INTEGER,
+'last_name' INTEGER
+);
+
+CREATE TABLE 'guardian' (
+'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+'first_name' TEXT,
+'last_name' TEXT,
+'contact_no' TEXT
+);
+
+CREATE TABLE 'team' (
+'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+'name' TEXT,
+'age_group_id' INTEGER,
+'coach_id' INTEGER,
+FOREIGN KEY ('age_group_id') REFERENCES 'age_group'('id')
+FOREIGN KEY ('coach_id') REFERENCES 'coach'('id')
+);
+	
+CREATE TABLE 'age_group' (
+'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+'age_group' TEXT
+);
+	
+CREATE TABLE 'player_guardian' (
+'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+'player_id' INTEGER,
+'guardian_id' INTEGER,
+FOREIGN KEY ('player_id') REFERENCES 'player'('id')
+FOREIGN KEY ('guardian_id') REFERENCES 'guardian'('id')
+);

@@ -1,0 +1,16 @@
+-- Number of Players on each team
+SELECT team.name, count(player.id)
+FROM team
+JOIN player
+ON team.id = player.team_id
+GROUP BY team.id;
+
+-- Parents that have multiple children at the clubs
+SELECT guardian.first_name,guardian.last_name,count(player.id) AS 'Number of Kids'
+FROM player
+JOIN player_guardian
+ON player.id = player_guardian.player_id
+JOIN guardian
+ON guardian.id = player_guardian.guardian_id
+GROUP BY guardian.id
+HAVING count(player.id)>1;
